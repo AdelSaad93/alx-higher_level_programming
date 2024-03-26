@@ -1,4 +1,4 @@
-i#!/usr/bin/python3
+#!/usr/bin/python3
 
 a, b = 89, 10
 # Your code should be inserted here
