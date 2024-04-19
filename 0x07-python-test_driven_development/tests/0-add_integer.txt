@@ -4,4 +4,9 @@ python3 -c 'print(__import__("0-add_integer").add_integer(2))'
 python3 -c 'print(__import__("0-add_integer").add_integer(100.3, -2))'
 python3 -c 'print(__import__("0-add_integer").add_integer(4, "School"))'
 python3 -c 'print(__import__("0-add_integer").add_integer(None))'
+python3 -c 'print(__import__("0-add_integer").add_integer(10.5, 5))'  # Test integer casting
+python3 -c 'print(__import__("0-add_integer").add_integer(99999999999999999999999999999999, 1))'  # Test float overflow
+python3 -c 'print(__import__("0-add_integer").add_integer(float('nan'), 5))'  # Test handling float NaN
+python3 -c 'print(__import__("0-add_integer").add_integer(10))'  # Test missing one argument
+python3 -c 'print(__import__("0-add_integer").add_integer())'  # Test missing two arguments
 
