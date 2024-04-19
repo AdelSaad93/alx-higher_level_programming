@@ -16,7 +16,7 @@ def add_integer(a, b=98):
         int: The addition of a and b.
 
     Raises:
-        TypeError: If a or b is not an integer or float.
+        TypeError: If a is not an integer or float, or if b is not an integer.
 
     Examples:
         >>> add_integer(1, 2)
@@ -30,7 +30,7 @@ def add_integer(a, b=98):
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer or float")
-    if not isinstance(b, (int, float)):
-        raise TypeError("b must be an integer or float")
+    if not isinstance(b, int):
+        raise TypeError("b must be an integer")
     return int(a) + int(b)
 
