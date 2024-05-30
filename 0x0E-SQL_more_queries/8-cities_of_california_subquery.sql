@@ -26,16 +26,16 @@ INSERT INTO states (name) VALUES
 ON DUPLICATE KEY UPDATE name=name;
 
 INSERT INTO cities (state_id, name) VALUES 
-((SELECT id FROM states WHERE name='California'), 'San Francisco'), 
-((SELECT id FROM states WHERE name='California'), 'San Diego'), 
-((SELECT id FROM states WHERE name='California'), 'San Jose'), 
-((SELECT id FROM states WHERE name='Arizona'), 'Page'), 
-((SELECT id FROM states WHERE name='Arizona'), 'Phoenix'), 
-((SELECT id FROM states WHERE name='Nevada'), 'Las Vegas')
+((SELECT id FROM states WHERE name='California' LIMIT 1), 'San Francisco'), 
+((SELECT id FROM states WHERE name='California' LIMIT 1), 'San Diego'), 
+((SELECT id FROM states WHERE name='California' LIMIT 1), 'San Jose'), 
+((SELECT id FROM states WHERE name='Arizona' LIMIT 1), 'Page'), 
+((SELECT id FROM states WHERE name='Arizona' LIMIT 1), 'Phoenix'), 
+((SELECT id FROM states WHERE name='Nevada' LIMIT 1), 'Las Vegas')
 ON DUPLICATE KEY UPDATE name=name;
 
 -- Step 5: Query to list all cities of California
 SELECT id, name
 FROM cities
-WHERE state_id = (SELECT id FROM states WHERE name = 'California')
+WHERE state_id = (SELECT id FROM states WHERE name = 'California' LIMIT 1)
 ORDER BY id ASC;
