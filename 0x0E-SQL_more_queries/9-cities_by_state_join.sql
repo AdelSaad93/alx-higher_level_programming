@@ -20,17 +20,22 @@ CREATE TABLE IF NOT EXISTS cities (
     FOREIGN KEY (state_id) REFERENCES states(id)
 );
 
--- Insert sample data if the tables are empty
-INSERT INTO states (id, name) VALUES (1, 'California'), (2, 'Arizona'), (3, 'Texas') 
+-- Insert sample data into the states table
+INSERT INTO states (id, name) VALUES 
+(1, 'California'), 
+(2, 'Arizona'), 
+(3, 'Texas'), 
+(4, 'Nevada')
 ON DUPLICATE KEY UPDATE id=id;
 
+-- Insert sample data into the cities table
 INSERT INTO cities (id, state_id, name) VALUES 
 (1, 1, 'San Francisco'), 
 (2, 1, 'San Diego'), 
 (3, 1, 'San Jose'), 
 (10, 2, 'Page'), 
 (11, 2, 'Phoenix'), 
-(12, 3, 'Las Vegas') 
+(12, 4, 'Las Vegas') 
 ON DUPLICATE KEY UPDATE id=id;
 
 -- Query to list all cities along with their respective states
